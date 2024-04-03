@@ -1,0 +1,3 @@
+*/pgdata/
+*.md
+deployment/Dockerfile

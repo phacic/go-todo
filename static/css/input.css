@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.todo-item {
+  @apply bg-gray-100 mb-2 p-2 rounded-md cursor-pointer hover:bg-slate-200 border-gray-200 border transition ease-in-out hover:scale-[1.01];
+}

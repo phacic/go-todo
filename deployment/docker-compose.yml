@@ -1,0 +1,35 @@
+version: "3"
+
+networks:
+  backend:
+    driver: "bridge"
+
+services:
+  db:
+    env_file:
+      - ../.env
+    image: postgres:14
+    #    ports:
+    #      - "5433:5432"
+    volumes:
+      - ../pgdata/db:/var/lib/postgresql/data:rw
+    #    environment:
+    networks:
+      - backend
+
+  web:
+    env_file:
+      - ../.env
+    build:
+      context: ..
+      dockerfile: ../deployment/Dockerfile
+#    command: sh -c 'sleep 365d'
+    command: sh -c '/app'
+    volumes:
+      - ..:/code
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    depends_on:
+      - db
