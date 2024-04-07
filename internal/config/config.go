@@ -13,7 +13,7 @@ type Cgf struct {
 	} `yaml:"app"`
 
 	Database struct {
-		Host string `yaml:"host" env:"DB_HOSt"`
+		Host string `yaml:"host" env:"DB_HOST"`
 		Port string `yaml:"port" env:"DB_PORT"`
 		User string `yaml:"user" env:"DB_USER"`
 		Pwd  string `yaml:"pwd" env:"DB_PWD"`

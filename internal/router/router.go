@@ -1,9 +1,10 @@
 package router
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"todo/app/todo"
 	"todo/app/todoNot"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func setupPagesRoutes(app *fiber.App) {
@@ -21,7 +22,9 @@ func setupAPIRoutes(app *fiber.App) {
 
 	v1 := api.Group("v1")
 	todoV1 := v1.Group("todo")
-	todoV1.Get("", todo.APIV1)
+	todoV1.Get("", todo.List)
+	todoV1.Post("", todo.Create)
+	todoV1.Get("/:id", todo.Retrieve)
 
 	toNoDoV1 := v1.Group("todo-not")
 	toNoDoV1.Get("", todoNot.TodoNot)

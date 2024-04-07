@@ -10,11 +10,11 @@ args=$(filter-out $@,$(MAKECMDGOALS))
 
 # generate entity (table)
 entity:
-	go run entgo.io/ent/cmd/ent new $(args)
+	go run -mod=mod entgo.io/ent/cmd/ent new $(args)
 
 # generate code needed
 schema:
-	go run entgo.io/ent/cmd/ent generate ./ent/schema
+	go run -mod=mod entgo.io/ent/cmd/ent generate ./ent/schema
 
 # inspect schema created with atlas
 schema_inspect:

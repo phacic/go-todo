@@ -1,3 +1,53 @@
-<article>
-    <h1>Todo</h1>
+<article class="flex flex-col h-screen min-h-screen bg-gray-200">
+    <div class="grid grid-cols-6">
+        <div class="min-h-screen bg-white dark:bg-slate-700 col-start-1 col-end-7 md:col-start-2 md:col-end-6 p-5 md:p-10">
+            <h1 class="font-bold text-2xl py-7">Todo</h1>
+
+            <form hx-post="/todo/add" hx-target="#todo_list" hx-swap="beforeend">
+                <div class="flex join">
+                    <div class="grow">
+                        <div>
+                            <label class="form-control w-full">
+                                <input class="input input-bordered input-primary input-lg join-item" name="task" type="text"
+                                       placeholder="Enter your task">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="indicator">
+                        <!-- <span class="indicator-item badge badge-neutral">new</span> -->
+                        <button type="submit" class="btn btn-lg btn-secondary join-item">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <ul id="todo_list" class="pt-8">
+
+                <li class="todo-item">
+                    <div class="flex ">
+                        <div class="flex grow w-full">
+                            <label class="cursor-pointer label ">
+                                <input type="checkbox" checked="checked" class="checkbox checkbox-secondary checkbox-mg mx-5" />
+                                <span class="text-lg">This is the first task of the day</span>
+                            </label>
+                        </div>
+                        <button class="btn btn-circle btn-ghost btn-warning btn-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 </article>
